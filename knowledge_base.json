@@ -1,0 +1,68 @@
+{
+    "questions": [
+        {
+            "question": "What are the library hours at Presidency University?",
+            "answer": "The library is open from 9:00 AM to 5:00 PM, Monday to Friday."
+        },
+        {
+            "question": "I'm bored!",
+            "answer": "Oh I see! Well, there is a Project Expo going on at the Presidency University lawn today! If you're free, you might want to check it out! You might be amazed."
+        },
+        {
+            "question": "Learn what's new!",
+            "answer": "The Dept of International Affairs has announced some new scholarship and internship opportunities! Would you like to learn more about them?"
+        },
+        {
+            "question": "How can I apply for an internship through Presidency University?",
+            "answer": "You can apply for internships by visiting the Career Services Office or checking the internship portal on the university's website."
+        },
+        {
+            "question": "When is the next career fair at Presidency University?",
+            "answer": "The next career fair is scheduled for September 15th in the main auditorium."
+        },
+        {
+            "question": "What are some upcoming events at Presidency University?",
+            "answer": "Upcoming events include the Tech Symposium on June 20th and the Cultural Fest on July 10th."
+        },
+        {
+            "question": "How can I get help with my academic projects?",
+            "answer": "You can get help with academic projects by visiting the Academic Support Center or booking a session with a tutor through the university's portal."
+        },
+        {
+            "question": "Who can I contact for scholarship information?",
+            "answer": "For scholarship information, you can contact the Financial Aid Office or visit the scholarships section on the university's website."
+        },
+        {
+            "question": "Where is the Student Counseling Center located?",
+            "answer": "The Student Counseling Center is located on the second floor of the Student Services Building."
+        },
+        {
+            "question": "What sports facilities are available at Presidency University?",
+            "answer": "The university offers facilities for basketball, football, a well-equipped gym, kabaddi, volleyball, table tennis, and cricket."
+        },
+        {
+            "question": "How do I join a student club or organization?",
+            "answer": "You can join a student club or organization by attending the Club Fair or visiting the Student Activities Office."
+        },
+        {
+            "question": "Where can I find the academic calendar for Presidency University?",
+            "answer": "The academic calendar is available on the university's official website under the Academics section."
+        },
+        {
+            "question": "How do I register for classes at Presidency University?",
+            "answer": "You can register for classes through the university's online registration system accessible via the student portal."
+        },
+        {
+            "question": "Who is the Head of the Department of Mechanical Engineering?",
+            "answer": "The Head of the Department of Mechanical Engineering is Dr. Anil Kumar."
+        },
+        {
+            "question": "What is the procedure for getting a transcript?",
+            "answer": "To get a transcript, you need to submit a request form to the Registrar's Office or apply through the university's online services."
+        },
+        {
+            "question": "How can I get involved in research projects?",
+            "answer": "To get involved in research projects, you can contact your department's research coordinator or check for research opportunities on the university's website."
+        }
+    ]
+}
