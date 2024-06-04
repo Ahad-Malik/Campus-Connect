@@ -2,7 +2,7 @@
 
 ## Your AI-Powered Campus Buddy. Enhance Your Campus Experience with a Smart Assistant
 
-![Campus Connect Logo](static/images/logo.png)
+<img src="static/images/logo.png" alt="Campus Connect Logo" width="500">
 
 **Campus Connect** is your one-stop shop for a fulfilling and enriching college life. This innovative AI-powered chat assistant is here to help you make the most of your campus experience, whether you're seeking entertainment, exploring events, or navigating the complexities of internships and scholarships.
 
@@ -15,7 +15,9 @@
 * **Sample Questions:** Leverage a curated list of common topics with one-click access to sample questions. Simplify your interaction with the assistant.
 * **Dynamic Responses:** The assistant continuously learns from your chat history, enabling it to provide more contextually relevant and helpful responses over time.
 
-![Campus Connect UI](static/images/ui.png)
+<center>
+<img src="static/images/ui.png" alt="Campus Connect UI" width="350">
+</center>
 
 ## Technologies Used:
 
@@ -26,10 +28,32 @@
 
 ## Setting Up Campus Connect
 
-**Steps:**
+## Setup Instructions
 
-1. **Clone the Repository:**
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/Ahad-Malik/campus-connect.git
+    cd campus-connect
+    ```
 
-   ```bash
-   git clone https://github.com/Ahad-Malik/campus-connect.git
-   cd campus-connect
+2. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Run the Flask app**:
+    ```bash
+    export FLASK_APP=app.py
+    flask run
+    ```
+
+4. **Access the application**:
+    Open your browser and navigate to `http://127.0.0.1:5000/`.
+
+## Folder Structure
+
+- **app.py**: Main application file containing Flask routes and logic.
+- **templates/**: Contains HTML templates for the application. Javascript code is inside the html file.
+- **static/**: Contains static files such as CSS and images.
+- **knowledge_base.json**: JSON file storing predefined questions and answers.
+- **prompts.py**: File containing prompts used by the AI for generating responses.
