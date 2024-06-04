@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template
 import google.generativeai as genai
 from prompts import prompt, jp
 
-genai.configure(api_key='AIzaSyCi2LBAixqYAZmMf9TwkH9ArTyJCXoxV04')
+genai.configure(api_key='YOUR-GEMINI-API-KEY')
 
 model = genai.GenerativeModel('gemini-pro')
 
