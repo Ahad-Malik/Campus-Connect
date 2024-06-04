@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="header"> <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Unibot Logo">
+        </div>
+        <div id="chatbox">
+            <div class="sample-questions">
+                <div class="sample-question" onclick="sendSampleQuestion('I\'m bored!')">I'm bored!</div>
+                <div class="sample-question" onclick="sendSampleQuestion('Learn what’s new!')">Learn what’s new!</div>
+            </div>
+        </div>
+        <div id="user-input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button id="send-button" onclick="sendMessage()">
+                <img src="{{ url_for('static', filename='images/send-icon.png') }}" alt="Send">
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let chatHistory = [];
+
+        window.onload = function() {
+            const initialMessages = JSON.parse('{{ initial_messages | tojson | safe }}');
+            initialMessages.forEach(message => {
+                appendInitialMessage(message);
+            });
+        };
+
+        function appendInitialMessage(message) {
+            const chatbox = document.getElementById('chatbox');
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container', 'assistant');
+
+            const botIcon = document.createElement('img');
+            botIcon.src = "{{ url_for('static', filename='images/bot-icon.png') }}";
+            botIcon.alt = "Bot Icon";
+            botIcon.classList.add('bot-icon');
+
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', 'assistant');
+            messageDiv.innerText = message;
+
+            messageContainer.appendChild(botIcon);
+            messageContainer.appendChild(messageDiv);
+            chatbox.appendChild(messageContainer);
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (!userInput) return;
+            appendMessage('user', userInput);
+            chatHistory.push(`You: ${userInput}`);
+            showTypingIndicator();
+
+            const response = await fetch('http://127.0.0.1:5000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userInput, chat_history: chatHistory })
+            });
+
+            const data = await response.json();
+            chatHistory = data.chat_history;
+            hideTypingIndicator();
+            appendMessage('assistant', data.content);
+            document.getElementById('user-input').value = '';
+            scrollToBottom();
+        }
+
+        function sendSampleQuestion(question) {
+            appendMessage('user', question);
+            chatHistory.push(`You: ${question}`);
+            showTypingIndicator();
+            getBotResponse(question);
+        }
+
+        async function getBotResponse(question) {
+            const response = await fetch('http://127.0.0.1:5000/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: question, chat_history: chatHistory })
+            });
+
+            const data = await response.json();
+            chatHistory = data.chat_history;
+            hideTypingIndicator();
+            appendMessage('assistant', data.content);
+            scrollToBottom();
+        }
+
+        function appendMessage(sender, message) {
+            const chatbox = document.getElementById('chatbox');
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container', sender);
+
+            if (sender === 'assistant') {
+                const botIcon = document.createElement('img');
+                botIcon.src = "{{ url_for('static', filename='images/bot-icon.png') }}";
+                botIcon.alt = "Bot Icon";
+                botIcon.classList.add('bot-icon');
+
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', sender);
+                messageDiv.innerHTML = `<strong></strong> ${message}`;
+
+                messageContainer.appendChild(botIcon);
+                messageContainer.appendChild(messageDiv);
+            } else {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', sender);
+                messageDiv.innerHTML = `<strong></strong> ${message}`;
+
+                messageContainer.appendChild(messageDiv);
+            }
+
+            chatbox.appendChild(messageContainer);
+        }
+
+        function showTypingIndicator() {
+            const chatbox = document.getElementById('chatbox');
+            const typingIndicator = document.createElement('div');
+            typingIndicator.id = 'typing-indicator';
+            typingIndicator.classList.add('message-container', 'assistant');
+
+            const botIcon = document.createElement('img');
+            botIcon.src = "{{ url_for('static', filename='images/bot-icon.png') }}";
+            botIcon.alt = "Bot Icon";
+            botIcon.classList.add('bot-icon');
+
+            const typingGif = document.createElement('img');
+            typingGif.src = "{{ url_for('static', filename='images/typing.gif') }}";
+            typingGif.alt = "Typing...";
+            typingGif.classList.add('typing-gif');
+
+            typingIndicator.appendChild(botIcon);
+            typingIndicator.appendChild(typingGif);
+            chatbox.appendChild(typingIndicator);
+            scrollToBottom();
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function scrollToBottom() {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
