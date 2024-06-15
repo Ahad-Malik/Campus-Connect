@@ -16,7 +16,7 @@
 * **Dynamic Responses:** The assistant continuously learns from your chat history, enabling it to provide more contextually relevant and helpful responses over time.
 
 <center>
-<img src="static/images/appui.png" alt="Campus Connect UI" width="350">
+<img src="static/images/UI.png" alt="Campus Connect UI" width="350">
 </center>
 
 ## Technologies Used:
