@@ -7,9 +7,9 @@ from prompts import prompt, jp
 
 genai.configure(api_key='YOUR-GEMINI-API-KEY')
 
-model = genai.GenerativeModel('gemini-pro')
-
-
+model = genai.GenerativeModel('gemini-1.5-pro', 
+        system_instruction= "You are a helpful assistant in an app called Campus Connect, 
+        you help students to guide them about campus activities, events, entertainment")
 
 app = Flask(__name__, static_url_path='', static_folder='static', template_folder='templates')
 
