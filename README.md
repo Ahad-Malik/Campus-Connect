@@ -2,7 +2,7 @@
 
 ## Your AI-Powered Campus Buddy. Enhance Your Campus Experience with a Smart Assistant
 
-<img src="static/images/logo.png" alt="Campus Connect Logo" width="500">
+<img src="static/images/logoo.png" alt="Campus Connect Logo" width="500">
 
 **Campus Connect** is your one-stop shop for a fulfilling and enriching college life. This innovative AI-powered chat assistant is here to help you make the most of your campus experience, whether you're seeking entertainment, exploring events, or navigating the complexities of internships and scholarships.
 
