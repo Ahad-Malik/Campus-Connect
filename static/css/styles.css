@@ -25,7 +25,7 @@ body {
 }
 
 #header {
-    background-color: #9d4edd;
+    background-color: #009494;
     padding: 0px;
     color: white;
     text-align: center;
@@ -58,7 +58,7 @@ body {
 
 #user-input-container {
     display: flex;
-    border-top: 1px solid #9B4AD5;
+    border-top: 1px solid #009494;
     background-color: #323232;
 
 }
@@ -101,11 +101,12 @@ body {
 }
 
 .user .message {
-    background-color: #9d4edd;
+    background-color: #009494;
     color: white;
     align-self: flex-end;
     margin-left: auto;
     border-radius: 10px;
+    text-shadow: 1px 1px #696969;
 }
 
 .assistant .message {
@@ -115,6 +116,7 @@ body {
     margin-right: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    text-shadow: 1px 1px #000000;
 }
 
 .sample-questions {
