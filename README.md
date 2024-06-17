@@ -55,5 +55,6 @@
 - **app.py**: Main application file containing Flask routes and logic.
 - **templates/**: Contains HTML templates for the application. Javascript code is inside the html file.
 - **static/**: Contains static files such as CSS and images.
-- **knowledge_base.json**: JSON file storing predefined questions and answers.
+- **knowledge_base.json**: JSON file storing predefined questions and answers.(if it doesn't work, Place this json file just outside the folder)
 - **prompts.py**: File containing prompts used by the AI for generating responses.
+
